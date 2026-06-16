@@ -641,13 +641,53 @@ function renderLiveBoard(){
 // ═══════════════════════════════════════════════════════════════
 // ESPN FETCH
 // ═══════════════════════════════════════════════════════════════
-// US Open tee times — will be updated when released (typically Tuesday before tournament)
-// Times shown in CT (ET - 1 hour)
+// US Open tee times — converted to CT (ET - 1 hour)
 const TEE_TIMES = {
-  1:{}, // Round 1 Thu Jun 18 — update when released
-  2:{}, // Round 2 Fri Jun 19 — update after R1
-  3:{}, // Round 3 Sat Jun 20 — update after R2
-  4:{}, // Round 4 Sun Jun 21 — update after R3
+  1:{ // Round 1 — Thursday June 18 (all times CT)
+    // Early wave (off #1)
+    "James Nicholas":"5:35 AM CT","Taylor Montgomery":"5:35 AM CT","Caleb Surratt":"5:35 AM CT",
+    "Ethan Fang":"5:46 AM CT","Jayden Schaper":"5:46 AM CT","Jackson Suber":"5:46 AM CT",
+    "Chase Kyes":"5:57 AM CT","Matthew Jordan":"5:57 AM CT","Alejandro Tosti":"5:57 AM CT",
+    "Carl Yuan":"6:08 AM CT","Brandon Wu":"6:08 AM CT","Jimmy Stanger":"6:08 AM CT",
+    "Padraig Harrington":"6:19 AM CT","Miles Russell":"6:19 AM CT","Cameron Smith":"6:19 AM CT",
+    "Aaron Rai":"6:30 AM CT","Collin Morikawa":"6:30 AM CT","Jason Day":"6:30 AM CT",
+    "Wyndham Clark":"6:41 AM CT","Denny McCarthy":"6:41 AM CT","Adam Hadwin":"6:41 AM CT",
+    "Keegan Bradley":"6:52 AM CT","Patrick Reed":"6:52 AM CT","Sepp Straka":"6:52 AM CT",
+    "Harris English":"7:03 AM CT","Russell Henley":"7:03 AM CT","Sam Stevens":"7:03 AM CT",
+    "Adam Scott":"7:14 AM CT","Sahith Theegala":"7:14 AM CT","Byeong Hun An":"7:14 AM CT",
+    "Patrick Cantlay":"7:25 AM CT","Tony Finau":"7:25 AM CT","Shane Lowry":"7:25 AM CT",
+    "Max Homa":"7:36 AM CT","Tyrrell Hatton":"7:36 AM CT","Si Woo Kim":"7:36 AM CT",
+    "Brooks Koepka":"7:47 AM CT","Cameron Young":"7:47 AM CT","Chris Gotterup":"7:47 AM CT",
+    "Scottie Scheffler":"8:14 AM CT","J.J. Spaun":"8:14 AM CT","Mason Howell":"8:14 AM CT",
+    "Rory McIlroy":"7:52 AM CT","Ludvig Åberg":"7:52 AM CT","Tommy Fleetwood":"7:52 AM CT",
+    // Afternoon wave (off #10)
+    "Xander Schauffele":"12:47 PM CT","Justin Thomas":"12:47 PM CT","Hideki Matsuyama":"12:47 PM CT",
+    "Bryson DeChambeau":"1:25 PM CT","Viktor Hovland":"1:25 PM CT","Matt Fitzpatrick":"1:25 PM CT",
+    "Akshay Bhatia":"1:58 PM CT","Carlos Ortiz":"1:58 PM CT","Min Woo Lee":"1:58 PM CT",
+    "Justin Rose":"2:09 PM CT","Jordan Spieth":"2:09 PM CT","Jon Rahm":"2:09 PM CT",
+    "Corey Conners":"12:30 PM CT","Sam Burns":"12:30 PM CT","Nick Taylor":"12:30 PM CT",
+    "Sungjae Im":"12:41 PM CT","Rasmus Højgaard":"12:41 PM CT","Taylor Pendrith":"12:41 PM CT",
+    "Jacob Bridgeman":"12:52 PM CT","Aaron Rai":"12:52 PM CT",
+    "Brian Harman":"1:03 PM CT","Nicolai Højgaard":"1:03 PM CT",
+    "Joaquin Niemann":"1:14 PM CT","Rickie Fowler":"1:14 PM CT","Billy Horschel":"1:14 PM CT",
+    "Justin Rose":"2:09 PM CT","Jordan Spieth":"2:09 PM CT","Jon Rahm":"2:09 PM CT",
+    "Kurt Kitayama":"1:36 PM CT","Haotong Li":"1:36 PM CT","Lucas Glover":"1:36 PM CT",
+    "Tom Kim":"1:47 PM CT","Keegan Bradley":"1:47 PM CT","Robert MacIntyre":"1:47 PM CT",
+  },
+  2:{ // Round 2 — Friday June 19 — tee times flip waves
+    "Scottie Scheffler":"12:14 PM CT","J.J. Spaun":"12:14 PM CT",
+    "Rory McIlroy":"12:52 PM CT","Ludvig Åberg":"12:52 PM CT","Tommy Fleetwood":"12:52 PM CT",
+    "Brooks Koepka":"12:47 PM CT","Cameron Young":"12:47 PM CT","Chris Gotterup":"12:47 PM CT",
+    "Xander Schauffele":"7:47 AM CT","Justin Thomas":"7:47 AM CT","Hideki Matsuyama":"7:47 AM CT",
+    "Bryson DeChambeau":"8:25 AM CT","Viktor Hovland":"8:25 AM CT","Matt Fitzpatrick":"8:25 AM CT",
+    "Justin Rose":"9:09 AM CT","Jordan Spieth":"9:09 AM CT","Jon Rahm":"9:09 AM CT",
+    "Patrick Cantlay":"6:25 AM CT","Tony Finau":"6:25 AM CT","Shane Lowry":"6:25 AM CT",
+    "Aaron Rai":"5:30 AM CT","Collin Morikawa":"5:30 AM CT","Jason Day":"5:30 AM CT",
+    "Akshay Bhatia":"7:58 AM CT","Min Woo Lee":"7:58 AM CT",
+    "Sam Burns":"5:30 AM CT","Nick Taylor":"5:30 AM CT",
+  },
+  3:{}, // Round 3 — Sat Jun 20 — update after R2
+  4:{}, // Round 4 — Sun Jun 21 — update after R3
 };
 
 async function fetchScores(){
